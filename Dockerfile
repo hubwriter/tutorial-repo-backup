@@ -1,6 +1,10 @@
 # Specify a container image to use to generate the new Docker container
 FROM alpine:latest
 
+# Install packages in the Docker container
+RUN apk add --no-cache \
+  curl 
+
 # Copy your custom action shell script from this repository into the container
 # COPY <RELATIVE PATH TO FILE BEING COPIED> <FULL PATH OF LOCATION ON THE CONTAINER>
 COPY get-issue-details.sh /get-issue-details.sh
